@@ -1,10 +1,12 @@
 import express from 'express';
+import cors from 'cors';
 import 'dotenv/config';
 import { MongoClient } from 'mongodb';
 
 const app = express();
 
 app.use(express.json());
+app.use(cors())
 
 const PORT = process.env.SECRET_EXAMPLE_PORT || 3000;
 const KEY = process.env.SECRET_EXAMPLE_KEY;
