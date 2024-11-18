@@ -13,10 +13,14 @@ const KEY = process.env.SECRET_EXAMPLE_KEY;
 const MONGODB_URI = process.env.MONGODB_URI;
 const DB_NAME = process.env.DATABASE_NAME;
 
+const ConnectToDB = async () => {
+    await client.connect();
+}
+
 const client = new MongoClient(MONGODB_URI);
-
-
+await ConnectToDB();
 const db = client.db(DB_NAME);
+
 
 // ================ ENDPOINTS ================
 app.get("/", async (req, res) => {
