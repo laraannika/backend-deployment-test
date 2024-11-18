@@ -1,11 +1,14 @@
 import express from 'express';
 import 'dotenv/config';
-const { MongoClient, ServerApiVersion } = require('mongodb');
-const uri = process.env.SECRET_EXAMPLE_URI;
+import { MongoClient } from 'mongodb';
 
 const app = express();
+
 const PORT = process.env.SECRET_EXAMPLE_PORT || 3000;
 const KEY = process.env.SECRET_EXAMPLE_KEY;
+const MONGODB_URI = process.env.MONGODB_URI;
+const DB_NAME = process.env.DATABASE_NAME;
+
 
 app.get('/', (req, res) => {
     res.send(`Hallo vom Backendserver! Der geheime Schlüssel ist: ${KEY}`);
